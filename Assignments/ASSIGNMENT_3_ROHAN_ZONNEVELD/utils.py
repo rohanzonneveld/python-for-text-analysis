@@ -5,20 +5,24 @@ from collections import Counter
 
 def get_paths(input_folder):
     '''
-    * takes one positional parameter called *input_folder*
-    * the function stores all paths to .txt files in the *input_folder* in a list
-    * the function returns a list of strings, i.e., each string is a file path
+    * input: input_folder (string)
+    * output: paths (list of strings)
+
+    * This function stores all paths to files in the input folder
+        in a new .txt file (paths.txt) in the input_folder
+        It also returns a list of all paths
     '''
     paths = os.listdir(input_folder)
-    with open('paths.txt', 'w') as f:
-        for path in paths:
-            f.write(path + '\n')
+    out_path = os.path.join(input_folder, 'paths.txt')
+    with open(out_path, 'w') as f:
+        f.write('\n'.join(paths))
+    
     return paths
 
 def get_basic_stats(txt_path):
     '''
-    * takes one positional parameter called *txt_path*
-    * the function returns a dictionary with the following key-value pairs:
+    * input: txt_path (string)
+    * output: a dictionary with the following key-value pairs:
         * 'num_sents': number of sentences in the text
         * 'num_tokens': number of tokens in the text
         * 'vocab_size': number of unique tokens in the text

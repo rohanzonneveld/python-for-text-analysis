@@ -2,6 +2,9 @@ from utils_3a import preprocess
 
 def my_word_count(text):
     '''
+    * input: text (string)
+    * output: word_freq (dictionary)
+
     This function takes a string and returns a dictionary with the words as keys and the number of times each word appears as values.
     '''
     
@@ -22,9 +25,12 @@ def main():
     '''
 
     text = 'this is a (tricky) test'
-    print(preprocess(text, chars_to_remove={'(', ')'}))
-    text = 'this is a (very very very very tricky) test'
-    print(my_word_count(text))
+    print(f'\nOriginal text: {text}')
+    print(f'Preprocessed text: {preprocess(text, chars_to_remove={"(", ")"})}')
+
+    text = 'this is a (very very very very tricky) test. This is another tricky test'
+    print(f'\nOriginal text: {text}')
+    print(f'Word count: {my_word_count(text)}')
 
 if __name__ == '__main__':
     main()

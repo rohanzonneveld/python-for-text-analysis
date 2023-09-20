@@ -13,25 +13,47 @@ def get_talks(root):
 
 def get_id(talk):
     """Get the id of a talk."""
-    id = talk.find('head').find('talkid').text
+    try:
+        id = talk.find('head').find('talkid').text
+    except:
+        id = 'no id'
+
     return id
 
 def get_date(talk):
     """Get the date of a talk."""
-    date = talk.find('head').find('date').text
+    try:
+        date = talk.find('head').find('date').text
+    except:
+        date = 'no date'
+
     return date
 
 def get_title(talk):
     """Get the title of a talk."""
-    title = talk.find('head').find('title').text
+    try:
+        title = talk.find('head').find('title').text
+    except:
+        title = 'no title'
+
     return title
 
 def get_speaker(talk):
     """Get the speaker of a talk."""
-    speaker = talk.find('head').find('speaker').text
+    try:
+        speaker = talk.find('head').find('speaker').text
+    except:
+        speaker = 'no speaker'
+
     return speaker
 
 def get_wc(talk):
     """Get the word count of a talk."""
-    wc = talk.find('head').find('wordnum').text
+    try:
+        wc = talk.find('head').find('wordnum').text
+    except:
+        wc = 'no word count'
+
     return wc
+
+
